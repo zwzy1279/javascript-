@@ -1,0 +1,38 @@
+<script>
+    /*
+        这里把共有方法放在原型对象上，说明是放在当prototype作为对象时，里面已经有一个constructor属性了
+
+        为什么要把构造器里的方法放在原型对象上呢，因为减少当构造多个类时的重复代码
+
+        前面说过创建对象的字面量方法，构造函数的方法，创建类的方法都是太过空间浪费
+        那当创建多个对象，如何让其中的公有方法让各个对象都有呢，而且在减少代码空间的情况下
+
+    */
+   //以前用new类创建对象
+   function Person(name,age){
+    //因为外面是用new的，所以创建的是一个类，在这个函数构造器中，其实这里是省略了对象的一个花括号{}的
+    this.name=name;//通过打点的方式给这个this对象添加上属性，这个属性等于形式参数的name,这个this是谁，就看是第几种this绑定类型，this 就是谁，这个属性就是谁
+    this.age=age;
+    this.coding=function(){
+        console.log(this.name+"会敲代码");
+    }
+   }
+   let p=new Person("zs",23);
+   let p2=new Person("ls",24);
+   console.log(p.coding);
+</script>
+
+<script>
+    function Animal(name,color){
+        this.name=name;
+        this.color=color;
+    }
+    Animal.prototype.character=function(){console.log(this.name+'动物是'+this.color+"色的");};
+   // Animal.prototype.constructor=Animal;
+    let a=new Animal("dog","white");
+    let a2=new Animal("cat","gray");//new一个构造器时，这个构造器会自己先执行一遍
+    a.character();//当函数调用时，this才有指向，这里的this绑定类型是隐式绑定，看独立函数调用打点的前面的对象那个是谁就是谁
+    a2.character();
+    
+    
+</script>

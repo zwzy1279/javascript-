@@ -1,0 +1,31 @@
+<script>
+    /*
+ES6中提出let,弥补var的不足
+        1.用let声明的变量不能进行变量提升
+        2.let声明的变量不会挂载到GO上
+        3.let和{}一块配合使用会产生块作用域  块作用域里let声明的变量只能在{}内使用
+        4.使用let不能重复进行声明
+    */
+   //console.log(window.b);
+   console.log(window.a);//undefined
+   console.log(a);//Uncaught ReferenceError: Cannot access 'a' before initialization
+   let a=1;
+</script>
+
+<script>
+    if(true){
+        let c=10;
+    }
+    console.log(c);//Uncaught ReferenceError: c is not defined
+</script>
+
+<script>
+    let w;
+    console.log(w);//undefined
+</script>
+
+<script>
+    let e=10;
+    //let e=11;
+    console.log(e);
+</script>

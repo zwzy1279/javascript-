@@ -1,0 +1,26 @@
+<script>
+    /*
+    js中有很多内置的类，可以通过new类来创建对象，比如Number String Date Array Object
+    */
+   var a=new Number();
+   console.log(a);
+   var b=new Array();
+   console.log(b);
+
+   /*
+一切都是对象
+伪数组不是数组，而是对象
+一个dom元素，本质上就是一个对象
+一个对象中有很多的属性和方法，jq死了就是因为对象里太多东西了，要操作它性能太差了
+而vue什么的操作的不是真正的dom，而是虚拟dom元素
+   */
+
+  /*
+可以用instanceof来判断某某是否属于哪一个类
+  */
+ console.log(b instanceof Object);//数组是一个特殊的对象
+ console.log(a instanceof Object);//万物皆是对象
+ console.log(a instanceof String);//false
+ //万物皆对象，字面量有时候也是一个对象
+ //函数也是个对象
+</script>

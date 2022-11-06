@@ -1,0 +1,52 @@
+<script>
+    /*
+在es6创建一个类不是用function来作为一个类了，而是用class来声明一个类
+
+//用function
+function Person(name,age){
+    this.name=name;
+    this.age=age;
+}
+let p=new Person("ad",12);
+console.log(p.name);
+
+//用class来声明一个类
+class Person{
+    //当外界new一个类时，会自生成一个constructor
+    //参数通过constructor来传递
+    constructor(name,age){
+        //成为他的私有属性
+        this.name=name;
+        this.age=age;
+    }
+}
+let p=new Person("qq",24);
+console.log(p.name);
+    */
+   //用class来声明一个类
+   //用es6来实现继承
+class Person{
+    //当外界new一个类时，会自生成一个constructor
+    //参数通过constructor来传递
+    constructor(name,age){
+        //成为他的私有属性
+        this.name=name;
+        this.age=age;
+    }
+    //公有方法
+    sayHello(){
+        console.log("sayHello");
+    }
+}
+class Student extends Person{//继承了父类
+    constructor(name,age,classname){
+        //调用父类
+        super();//可以传参，可以不传参
+    }
+}
+// let p=new Person("qq",24);
+// console.log(p.name);
+let s=new Student("ss",23,"软件专业");
+//利用子类继承父类，通过子类调用父类的方法
+s.sayHello();
+</script>

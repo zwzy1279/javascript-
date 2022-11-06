@@ -1,0 +1,27 @@
+<script>
+    /*
+        JSON前端能够将json数据传给后端，后端也能响应json数据
+
+        后缀为json的文件内容格式
+        1.内容必须用双引号引起来,单引号和没有双引号都会出现错误
+        2.json文件不能够注释的
+        3.数据不能够出现函数
+        4.对象的键必须是双引号的
+
+        json数据的序列化和反序列化
+        序列化：将js对象转成json字符串
+
+        反序列化：将json字符串转为js对象
+
+    */
+   //序列化
+   var obj={
+    uname:"sd"
+   };
+   var changecjson=JSON.stringify(obj);
+   console.log(changecjson);//{"uname":"sd"}
+
+   //反序列化
+   var changecjs=JSON.parse(changecjson);
+   console.log(changecjs);//{uname: 'sd'}
+</script>

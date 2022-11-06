@@ -1,0 +1,53 @@
+<script>
+    /*
+       //with
+       with能够延长作用域链，找一个变量，
+       如果自身with里面有定义就用自身的
+       如果自身没有就在传的参数里面找
+       里面参数里面找不到再从全局执行上下文ECG里面找
+        with(){
+            
+        }
+
+        //eval
+        可以将字符类型的数据转为js代码进行执行
+
+        //严格模式
+        "use strict"
+        //当写在js里最前面时，下面的代码会开启严格模式
+        //当写在函数里面的最前面时，下面的代码会开启严格模式
+        有六种严格模式
+        1.不能使用没有用var声明的变量
+        2.形式参数不允许重名
+        3.不能够使用with
+        4.不能够使用eval()
+        5.独立函数调用时，this默认不是window了，而是undefined
+        6.不能使用老的八进制写法,得用新的八进制写法0o...
+    */
+   //with
+  let obj={
+    uname:"zs"
+   };
+   function fn(){
+    let uname="ls";
+    with(obj){
+        //let uname="ww";
+        console.log(uname);
+    } 
+   }
+   fn();
+
+   //eval
+   var a="var b=12;var c=12;console.log(b+c);";
+   eval(a);
+
+   //严格模式
+   function fn2(){
+    "use strict";
+    var e=3;
+    console.log(e);
+    e2=4;
+    console.log(e2);
+   }
+   fn2();
+</script>

@@ -1,0 +1,25 @@
+<script>
+    /*
+    什么时组合继承
+    前面改变子类的原型对象就是继承父类的共有属性和共有方法，私有属性和私有方法不包括
+
+    组合继承就是用两种技术组合来实现子类对父类的继承
+            包括改变子类的原型对象，实现继承父类的公有属性或者方法
+            包括Person.call(this,name,age),实现继承父类的私有属性或者方法
+    */
+    function Animal(name,color){
+    this.name=name;
+    this.color=color;
+   }
+   Animal.prototype.cancry=function(){console.log("会叫。。。");}
+   function Dog(name,color){
+    Animal.call(this,name,color);//这里的this是指d对象
+   }
+  // let a=new Animal();
+   //let d=new Animal();
+   //改变子类的原型对象
+   Dog.prototype=new Animal("wc",12);
+   let d=new Dog("ww",13);
+   d.cancry();//子类能够调用父类的属性或者方法
+   console.log(d.name);//ww只能是自己的属性，即使在new子类没有传参时
+</script>

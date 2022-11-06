@@ -1,0 +1,41 @@
+<script>
+    /*
+        js有一些常见的错误，例如引用错误啊，类型错误啊等等
+        有一些错误是可能会发生，但并非报出错误，这个时候需要我们自己设定在特定情况下抛出异常
+    */
+   //有一些错误是可能会发生，但并非报出错误
+   //我们想要做一个两个数字传进来相加，那么当我们传进来的不是一个数字时，这个函数运行并不会出现语法错误，出现报错之类的情况出现
+   //那这个时候我们必须想一个方法来让这个函数抛出异常，当传进来的不是一个数字时
+//    function add(num1,num2){
+//     return num1+num2;
+//    }
+//    let a1=add(1,4);
+//    console.log(a1);//5  没有错误
+//    let a2=add("hello",24);
+//    console.log(a2);//hello24
+
+   function add(num1,num2){
+    if(typeof num1!="number"||typeof num2!="number"){
+        //return Error;//return返回的是到函数调用处
+        //抛出异常throw返回的是到函数调用处
+        throw new Error("你输入的类型不是Number,请重新输入");
+    }
+    return num1+num2;
+   }
+//    let a1=add(1,4);
+//    console.log(a1);//5  没有错误
+//    let a2=add("hello",24);
+//    console.log(a2);//hello24
+   //调用add函数有可能报错，有可能不会报错
+   //把可能报错的代码放到try中，catch捕捉到错误，传进给catch的参数
+   try{
+    let a1=add(1,4);
+   console.log(a1);//5  没有错误
+   let a2=add("hello",24);
+   console.log(a2);//hello24
+   }catch(err){
+    //console.log(err);
+    console.error(err);
+   }
+   
+</script>

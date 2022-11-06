@@ -1,0 +1,97 @@
+<script>
+    /*
+操作集合：增删改查 CRUD
+对对象进行增删改出操作
+    */
+   /*
+    对对象进行查的方法
+            1.通过打点的方式.  对象.属性  对象.方法
+            2.通过[]的方式     对象["属性名"]  对象[变量] 这里的属性在对象叫做键
+    属性也叫作键，不一定是字符串类型，可以是其他类型
+
+    遍历对象的方法  for(var key in 对象名){
+        console.log(key);//这里的Key指的是每一个属性名
+        console.log(obj[key]);//遍历对象中每一个属性，返回的是属性值
+}
+
+    遍历数组的方法
+        1.for循环
+        2.forEach
+        3.for of 
+        4.for in
+        
+        1.var arr=[];
+        for(var i=0;i<arr.length;i++){console.log(arr[i])}
+        2.arr forEach(item=>console.lohg(item))//item指每个属性
+        3.for(let item of arr){console.log(arr[item])}
+        4.for(let key in arr){console.log(arr[key])
+        }
+    
+   */
+
+  /*
+对对象进行改的方法  通过打点的方式.=新的值
+  */
+
+ /*
+对对象进行删除的方法 delete obj.属性名
+ */
+
+/*
+对对象进行增加属性或者方法的操作
+        1.通过字面量创建对象，往字面量增加属性或者方法  但是这样有多个对象，对象中有一些共同的代码会出现空间浪费，所以我们争取只创建一个对象
+        2.通过创建一个函数，里面包含一个对象。外面需要对象时，给变量赋值一个函数调用，通过函数调用传参
+        3.通过创建一个函数作为类，外面变量赋值new 一个类作为对象，通过传参
+    
+*/
+//1
+/*var a={
+    name:"as",
+    age:12,
+    fn:function(){
+        console.log(this.name);
+    }
+}
+a.fn();//as
+var b={
+    name:"ds",
+    age:12,
+    fn:function(){
+        console.log(this.name);
+    }
+}
+b.fn();//ds
+*/
+
+//2
+//通过构造函数，函数中有一个对象，给对象增加属性和方法，最后函数返回一个对象给比那辆接收
+function fn(name,age){
+    let obj={};
+    obj.name=name;//给obj对象增加name属性
+    obj.age=age;
+    obj.fn=function(){
+        console.log("我是通过构造函数创建的对象的函数");
+    }
+    return obj;//函数返回一个对象
+}
+var a=fn("ww",17);//因为函数返回的是一个对象，所以a接收的也是一个对象
+console.log(a);//{name: 'ww', age: 17, fn: ƒ}
+console.log(a.name+","+a.fn());//我是通过构造函数创建的对象的函数   ww,undefined
+
+//3
+//通过构造函数作为一个类的角色，通过new一个类创建产生对象，让外头变量接收
+function fn2(name,age){
+    //这里的this，因为是new绑定，所以这里的this为b这个对象
+    //给b对象添加属性name和age属性和方法coding方法
+    this.name=name;
+    this.age=age;
+    this.coding=function(){
+        console.log(this.name+"会写代码");
+    }
+    
+}
+var b=new fn2("cc",19);//接收到是一个对象
+console.log(b);//fn2 {name: 'cc', age: 19, coding: ƒ}
+console.log(b.coding);//ƒ (){console.log(this.name+"会写代码");}
+console.log(b.coding());//cc会写代码
+</script>

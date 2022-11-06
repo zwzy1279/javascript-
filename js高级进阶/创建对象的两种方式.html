@@ -1,0 +1,23 @@
+<script>
+/*
+    创建的对象的两种方式
+        1.使用字面量创建对象
+        2.使用new创建对象
+*/
+//使用字面量创建对象
+var obj={
+    name:"zs",
+    age:18,
+    fn:function(){
+        console.log("我是字面量创建的对象");
+    }
+}
+console.log(obj.fn);
+console.log(obj.fn());
+
+//使用new创建的对象
+var p=new Object();
+console.log(p);
+p.name="ddd";
+console.log(p.name);
+</script>

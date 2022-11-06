@@ -1,0 +1,19 @@
+<script>
+     function Animal(name,color){
+    this.name=name;
+    this.color=color;
+   }
+   Animal.prototype.cancry=function(){console.log("会叫。。。");}
+   function Dog(name,color){
+    Animal.call(this,name,color);//这里的this是指d对象
+   }
+  // let a=new Animal();
+   //let d=new Animal();
+   //改变子类的原型对象
+   //Dog.prototype=new Animal("wc",12);
+   //创建一个对象，并指定他的原型对象是父类
+   Dog.prototype=Object.create(Animal.prototype);
+   let d=new Dog("ww",13);
+   d.cancry();//子类能够调用父类的属性或者方法
+   console.log(d.name);//ww只能是自己的属性，即使在new子类没有传参时
+</script>

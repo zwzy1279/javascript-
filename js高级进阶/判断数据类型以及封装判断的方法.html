@@ -1,0 +1,21 @@
+<script>
+    /*
+        判断数据类型的有四种方法：typeof 基本数据类型和函数能够精准检测出来，其他引用类型不能具体在检测出来
+                                instanceof判断某一个对象是否是该类的一个实例，基本数据类型不能检测出来，所有的引用数据类型都是Object的实例
+                                consrtuctor不能检测基本数据类型，可以检测引用数据类型
+                                Object.prototype.toString.call()
+    */
+   console.log(typeof 123);//number
+   console.log("s" instanceof String);//false
+   console.log({} instanceof Object);//true
+   console.log({}.constructor===Object);//true
+   console.log(Object.prototype.toString.call(123));//[object Number]
+
+   //封装判断类型的方法
+   function checktype(data){
+    let res=Object.prototype.toString.call(data);
+    return res.slice(8,-1);
+   }
+   let type=checktype({});
+   console.log(type);//Object
+</script>

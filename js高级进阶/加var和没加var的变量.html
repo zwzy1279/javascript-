@@ -1,0 +1,18 @@
+<script>
+    /*
+        加了var 的变量，会在预编译期间被提升。没有在var的变量，在预编译期间不会进行变量提升
+        加了var 的变量或者没加var的变量，都会被挂载在window GO中
+        加var的变量不仅能够做全局变量还可以做局部变量，没加var的变量只能够做全局变量
+
+    */
+    console.log(a);//undefined
+   console.log(window.a);//undefined
+   console.log(window.b);//undefined//加了var 的变量或者没加var的变量，都会被挂载在window GO中
+   console.log(b);//ReferenceError: b is not defined//没有在var的变量，在预编译期间不会进行变量提升
+   var a=1;
+   b=3;
+   console.log(a);//1
+   console.log(window.a);//1
+   console.log(window.b);//3
+   console.log(b);//3
+</script>

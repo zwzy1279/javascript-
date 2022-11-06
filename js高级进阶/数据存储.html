@@ -1,0 +1,19 @@
+<script>
+    /*
+        数据存储在两种地方：内存和硬盘
+        持久的存储可以存储在硬盘中：Local Storage,关闭浏览器还会一直存在数据
+        Session Storage,关闭浏览器不会存在数据了
+        Cookies
+    */
+   //存储数据
+   window.localStorage.setItem("age",23);
+
+   //获取数据
+   console.log(window.localStorage.getItem("age"));
+
+   //删除数据
+   window.localStorage.removeItem("age");
+
+   //清除数据
+   window.localStorage.clear();
+</script>

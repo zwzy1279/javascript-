@@ -1,0 +1,18 @@
+<script>
+    /*
+        创建对象的多种方案：字面量创建，构造函数，通过new类创建对象，通过Object.create()
+
+        Object.create()可以创建出一个对象，这个对象我们可以为他指定原型对象，指定的原型对象写在括号内
+        当括号内写的是null时，指定的原型对象是一个非常纯净的对象，原型对象指定的一个很空的对象
+    */
+   var obj={
+    uname:"za"
+   };
+   var res=Object.create(null);//无属性
+   console.log(res);//无属性
+
+
+   var res2=Object.create(obj);
+   console.log(res2);//[[Prototype]]: Object
+
+</script>

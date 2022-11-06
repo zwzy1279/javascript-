@@ -1,0 +1,84 @@
+<!--
+    //什么是预解析
+    一般来说一个代码段要执行前，会先进行编译，也就是预解析
+    js代码经过浏览器加工预解析后，才能进行一行一行地执行
+
+    //如何进行预解析
+    预解析就是浏览器把js代码拿去加工的过程，那么如何进行加工（预解析）呢
+    //答：要进行提升，什么进行提升
+    1.全局的var声明的变量，全局的用function声明的函数要进行提升，提升到代码段之前
+       var声明的变量提升，只单纯进行提升，没有进行赋值
+       用function声明的函数的提升，不仅是进行函数名提升，还将函数整体提升（函数内部用var声明的变量，函数）
+    2.局部中（函数内部）用var声明的变量，用function声明的函数要进行提升，提升到函数内部的最前面
+       var声明的变量提升，只单纯进行提升，没有进行赋值
+       用function声明的函数的提升，不仅是进行函数名提升，还将函数整体提升
+
+    //常见错误
+    引用错误，就是变量或者函数没有进行声明
+    类型错误，将变量和函数混在一起
+-->
+<script>
+    //全局变量提升在代码段前面
+    console.log(a);
+    var a=2;
+    console.log(a);
+    /*
+        相当于在代码段前面就有
+        var a;//没有赋值所以是undefined
+        然后console.log(a);//undefined
+        a=2;//变量进行赋值
+        console.log(a);//2
+    */
+</script>
+<script>
+    //全局函数提升
+    fn();
+    function fn(){
+        console.log("我是fn()");
+    }
+    /*
+        因为全局中函数整体进行编译，
+        所以相当于在代码段前就有了这个函数整体
+        然后代码段中执行这个函数也就没什么错误，能够顺利执行啦
+    */
+</script>
+
+<script>
+    //局部变量提升在函数内部的最前面
+    function fn2(){
+        console.log(c);
+        var c=10;
+        console.log(c);
+    }
+    fn2();
+    /*
+        相当于
+        function fn2(){
+            var c;
+            console.log(c);//undefined
+            c=10;
+            console.log(c);//10
+        }
+    */
+</script>
+
+<script>
+    //局部变量提升在函数内部的最前面
+    function fn3(){
+        console.log(d);
+        var d=20;
+        console.log(d);
+        //局部中没有用var 声明的变量属于是全局的变量
+    }
+    fn3();
+    console.log(d);//出现引用类型错误
+    /*
+        相当于
+        function fn3(){
+            var d;
+            console.log(d);//undefined
+            d=20;
+            console.log(d);//20
+        }
+    */
+</script>

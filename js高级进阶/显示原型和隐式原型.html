@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            显示原型和隐式原型
+            
+            //函数有多种角色
+            1.函数作为普通函数
+            2.函数在对象里叫做方法
+            3.函数可以作为对象
+                   可以通过打点添加属性或者方法
+            4.函数可以作为类，或者说是构造器
+                   当new一个类时，可以创建出一个对象
+
+            //对象
+            任何一个对象都有私有属性和公有属性
+            公有属性里面有一个__proto__属性，叫做隐式原型属性，同时也是一个对象，因为里面有很多属性和方法
+
+            //类
+            类（构造器或者函数）都有一个显示原型属性prototype
+
+            //隐式和显式都是函数的一个属性，原型链也就是看看隐式和原式的链
+
+            //分析
+            var a=new Array();
+            //1.
+                首先Array作为构造器，是一个函数，里面有一个显示原型属性prototype
+            //2.
+                a是通过构造器new出来的一个对象，作为一个对象，拥有__proto__显示原型属性
+                __proto__是她的公有属性
+                而这个对象也有自己的私有属性，画图要画上
+            //3.
+                而这个显示原型属性浏览器也会自动生成一个原型对象
+                每个原型对象都会拥有一个constructor属性
+                又因为他作为一个对象，他内部也有一个__proto__属性
+            //4.a对象的隐式原型属性和构造器的显示原型属性共同指向原型对象（原型对象是浏览器帮我们创建的）
+            //5.原型对象的constructor属性指向构造器(函数本身）（小到大的指向才正确）
+
+            //形成一个图
+            a.__proto__==Array.prototype
+            a.__proto__.__proto__=Object.prototype
+
+        */
+    </script>
+</body>
+</html>

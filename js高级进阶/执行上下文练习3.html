@@ -1,0 +1,17 @@
+<script>
+    var a=1;
+    var obj={
+        uname:"wangcai"
+    };
+    function fn(){
+        var a2=a;
+        obj2=obj;
+        a2=a;
+        obj.uname="xiaoqiang";
+        console.log(a2);
+        console.log(obj2);
+    }
+    fn();
+    console.log(a);
+    console.log(obj);
+</script>
